@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col, Card } from "react-bootstrap";
 import { users } from "../../mock/data";
 import "./home.css";
 import logo from "../../assets/image/logo.svg";
@@ -9,7 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import banner1 from "../../assets/image/ecom-banner-1.jpeg";
 import banner2 from "../../assets/image/ecom-banner-2.jpeg";
 import banner3 from "../../assets/image/ecom-banner-3.png";
-import offerImage from "../../assets/image/offer-img2.gif";
+import offerImage from "../../assets/image/offer-img.gif";
+import image1 from "../../assets/image/airbuds.jpg"
 
 const HomePage = () => {
   //state maintain
@@ -65,11 +66,90 @@ const HomePage = () => {
         <Row>
           <Col sm={12} md={6}>
             <Nav.Link href="/">
-              <img className="img img-fluid" src={offerImage} alt="" />
+              <img  src={offerImage} alt="" />
             </Nav.Link>
           </Col>
         </Row>
       </Container>
+      {/* Offer ends */}
+
+       {/* Category Start */}
+       <Container>
+        <Row>
+          <Col>
+          <Card>
+            <Card.Img variant="top" src={image1} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          </Col>
+          <Col>
+          <Card>
+            <Card.Img variant="top" src={image1} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          </Col>
+          <Col>
+          <Card>
+            <Card.Img variant="top" src={image1} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          </Col>
+          <Col>
+          <Card>
+            <Card.Img variant="top" src={image1} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          </Col>
+          <Col>
+          <Card>
+            <Card.Img variant="top" src={image1} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the
+                bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          </Col>
+        </Row>
+      </Container>
+      {/* Category End */}
+      {/* Offer List */}
+      <Container>
+        <Row>
+          <Col sm={12} md={6}>
+            <Nav.Link href="/">
+              <img  src={offerImage} alt="" />
+            </Nav.Link>
+          </Col>
+        </Row>
+      </Container>
+      {/* Offer ends */}
     </>
   );
 };
