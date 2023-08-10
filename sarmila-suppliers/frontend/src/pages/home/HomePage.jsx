@@ -1,6 +1,5 @@
 import React from 'react'
 import {Navbar, Nav, Container, Row, Col, Card} from "react-bootstrap";
-import logo from "../../assets/image/logo.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -9,6 +8,19 @@ import banner2 from "../../assets/image/ecom-banner-2.jpeg";
 import banner3 from "../../assets/image/ecom-banner-3.png";
 import offerImage from "../../assets/image/offer.png";
 import offerImage2 from "../../assets/image/offer2.gif"
+import product1 from '../../assets/image/product1.jpg';
+import product2 from '../../assets/image/product2.jpg';
+import product3 from '../../assets/image/product3.jpg';
+import product4 from '../../assets/image/product4.jpg';
+import product5 from '../../assets/image/product5.jpg';
+import product6 from '../../assets/image/product6.jpg';
+import product7 from '../../assets/image/product7.jpg';
+import product8 from '../../assets/image/product8.jpg';
+import product9 from '../../assets/image/product9.jpg';
+import product10 from '../../assets/image/product10.jpg';
+import product11 from '../../assets/image/product11.jpg';
+import product12 from '../../assets/image/product12.jpg';
+import { HeaderComponent } from '../../components/HeaderComponent';
 
 const HomePage = () => {
   const settings = {
@@ -23,28 +35,8 @@ const HomePage = () => {
   };
   return (
     <>
-        {/* Nav Section Start */}
-        <Navbar bg="light" data-bs-theme="light">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img src={logo} alt="logo" className='img img-fluid logo-image' />
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#service">Service</Nav.Link>
-            <Nav.Link href="#product">Product</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#login">Login</Nav.Link>
-            <Nav.Link href="#register">Register</Nav.Link>
-
-          </Nav>
-        </Container>
-      </Navbar>
-      {/* Nav Section End */}
-
+        
+      <HeaderComponent />
       {/* Slider Banner Start */}
       <Slider {...settings}>
           <div>
@@ -77,24 +69,137 @@ const HomePage = () => {
       {/* Offer End */}
 
       {/* Category Start */}
-      <Container>
-        <Row>
-          <Col>
-          <h1>Category</h1>
-          <Card>
-            <Card.Img variant="top" src="" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-          </Col>
-        </Row>
-      </Container>
+      <div className='bg-light'>
+        <Container className='mt-3'>
+          <Row>
+            <Col>
+              <h2 className='text-center'>Products</h2>
+            </Col>
+          </Row>
+          <hr />
+          <Row>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product1} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product2} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product3} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product4} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product5} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            
+            <Card>
+              <Card.Img variant="top" src={product6} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+          </Row>
+          <Row className='mt-4'>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product7} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product8} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product9} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product10} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            <Card>
+              <Card.Img variant="top" src={product11} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+            <Col>
+            
+            <Card>
+              <Card.Img variant="top" src={product12} />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+              </Card.Body>
+            </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
       {/* Category End */}
+
+      {/* Footer Start */}
+      <footer className='bg-dark'>
+        <Container fluid>
+          <Row>
+            <Col sm={12} lg={4}>
+              About
+            </Col>
+            <Col sm={12} lg={4}>
+              About
+            </Col>
+            <Col sm={12} lg={4}>
+              About
+            </Col>
+          </Row>
+        </Container>
+      </footer>
+      {/* Footer End */}
     </>
   )
 }
