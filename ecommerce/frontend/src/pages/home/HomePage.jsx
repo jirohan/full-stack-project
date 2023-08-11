@@ -23,7 +23,7 @@ import { HeaderComponent } from "../../components/HeaderComponent";
 const HomePage = () => {
   //state maintain
   let [banner, setBanner] = useState();
-  let [loading, setLoading] = useState(true);
+  let [loading, setLoading] = useState(false);
 
   let data = users.result;
   const settings = {
@@ -42,8 +42,7 @@ const HomePage = () => {
   return (
     <>
       <HeaderComponent />
-      
-
+    
       {
         loading ? "Loading..." : 
         <Slider {...settings}>
@@ -189,7 +188,7 @@ const HomePage = () => {
         <Row>
           <Col sm={12}>
             <Nav.Link href="/">
-              <img className="center"  src={offerImage3} alt="" />
+              <img className="center" src={offerImage3} alt="" />
             </Nav.Link>
           </Col>
         </Row>

@@ -6,9 +6,11 @@ import './index.css'
 import "./assets/css/global.css"
 
 import HomePage from './pages/home/HomePage'
+import LoginPage from './pages/home/auth/LoginPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HomePage />
+    {/* <LoginPage /> */}
   </React.StrictMode>,
 )
