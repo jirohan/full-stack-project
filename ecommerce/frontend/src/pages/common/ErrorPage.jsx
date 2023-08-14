@@ -9,7 +9,9 @@ const ErrorPage = ({error}) => {
         <Container>
             <Row>
                 <Col className='text-danger fond-bold'>
-                    {error === 404 ? "Resource not Found" : "Server Not Found"}
+                    {
+                    error === 404 ? "Resource not Found" : "Server Not Found"
+                    }
                 </Col>
             </Row>
         </Container>

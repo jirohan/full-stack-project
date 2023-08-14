@@ -18,6 +18,7 @@ import image4 from "../../assets/image/nord1.jpg"
 import image5 from "../../assets/image/Oneplus.jpg"
 import image6 from "../../assets/image/watch.jpg"
 import { HeaderComponent } from "../../components/HeaderComponent";
+import { NavLink } from "react-router-dom";
 
 
 const HomePage = () => {
@@ -62,9 +63,9 @@ const HomePage = () => {
       <Container>
         <Row>
           <Col sm={12} md={6}>
-            <Nav.Link href="/">
+            <NavLink to="/">
               <img  src={offerImage} alt="" />
-            </Nav.Link>
+            </NavLink>
           </Col>
         </Row>
       </Container>
@@ -81,12 +82,14 @@ const HomePage = () => {
           <hr className="text-white" />
           <Row>
             <Col>
-            <Card>
-              <Card.Img variant="top" src={image1} />
+            <NavLink to="/category/1">
+             <Card>
+                <Card.Img variant="top" src={image1} />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
               </Card.Body>
             </Card>
+            </NavLink>
             </Col>
             <Col>
             <Card>
@@ -187,9 +190,9 @@ const HomePage = () => {
       <Container className='mt-3'>
         <Row>
           <Col sm={12}>
-            <Nav.Link href="/">
+            <NavLink to="/">
               <img className="center" src={offerImage3} alt="" />
-            </Nav.Link>
+            </NavLink>
           </Col>
         </Row>
       </Container>
