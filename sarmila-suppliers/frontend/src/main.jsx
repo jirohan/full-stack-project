@@ -4,10 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './index.css'
 import "./assets/css/global.css"
 
-import HomePage from './pages/home/HomePage'
+import Routing from './Routing'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HomePage />
+    <Routing />
+    {/* <HomePage /> */}
   </React.StrictMode>,
 )
