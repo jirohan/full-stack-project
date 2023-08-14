@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HeaderComponent } from '../../../components/HeaderComponent'
-import { Container, Form, Row } from 'react-bootstrap'
+import { Container, Form, Row, Col, Button } from 'react-bootstrap'
 
 const LoginPage = () => {
+    let [data, setData] = useState({
+        email: "test@user.com",
+        password: "admin123"
+    })
   return (
     <>
         <HeaderComponent />
