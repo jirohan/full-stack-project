@@ -4,6 +4,10 @@ import "./adminlayout.css"
 import "bootstrap"
  
 const AdminLayout = () => {
+    const sidebarToggle = () => {
+        document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+    }
   return (
     <>
         <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">

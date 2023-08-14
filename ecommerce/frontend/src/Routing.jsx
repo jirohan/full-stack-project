@@ -6,6 +6,8 @@ import ErrorPage from './pages/common/ErrorPage'
 import CategoryDetail from './pages/home/category/CategoryDetail'
 import AdminLayout from './pages/layout/AdminLayout'
 import CustomerLayout from './pages/layout/CustomerLayout'
+import AdminDashboard from './pages/admin/dashboard/AdminDashboard'
+
 
 const Routing = () => {
   return (
@@ -26,7 +28,7 @@ const Routing = () => {
 
                 */}
                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<>Admin Dashboad</>} />
+                  <Route index element={<AdminDashboard/>} />
                   <Route path="user">
                     <Route index element={<>List all user</>} /> 
                     <Route path="create" element={<>Create Component</>} />

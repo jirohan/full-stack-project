@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Navbar, Nav, Container, Row, Col, Card} from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -21,8 +21,14 @@ import product10 from '../../assets/image/product10.jpg';
 import product11 from '../../assets/image/product11.jpg';
 import product12 from '../../assets/image/product12.jpg';
 import { HeaderComponent } from '../../components/HeaderComponent';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
+
+  //state maintain
+  let [banner, setBanner] = useState();
+  let [loading, setLoading] = useState(false);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -33,12 +39,16 @@ const HomePage = () => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+
   return (
     <>
         
       <HeaderComponent />
+
       {/* Slider Banner Start */}
-      <Slider {...settings}>
+      {
+        loading ? "Loading..." : 
+        <Slider {...settings}>
           <div>
             <img src={banner1} alt="" />
           </div>
@@ -49,20 +59,21 @@ const HomePage = () => {
             <img src={banner3} alt="" />
           </div>
         </Slider>
+      }
       {/* Slider Banner End */}
 
       {/* Offer Start */}
       <Container>
         <Row>
           <Col>
-            <Nav.Link href='/'>
+            <NavLink to='/'>
               <img src={offerImage2} className='img img-fluid' alt="" />
-            </Nav.Link>
+            </NavLink>
           </Col>
           <Col>
-            <Nav.Link href='/'>
+            <NavLink to='/'>
               <img src={offerImage} className='img img-fluid' alt="" />
-            </Nav.Link>
+            </NavLink>
           </Col>
         </Row>
       </Container>
