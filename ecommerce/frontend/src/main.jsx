@@ -5,12 +5,12 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import './index.css'
 import "./assets/css/global.css"
 
-import HomePage from './pages/home/HomePage'
-import LoginPage from './pages/home/auth/LoginPage';
+import Routing from './Routing';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HomePage />
+    <Routing />
+    {/* <HomePage /> */}
     {/* <LoginPage /> */}
   </React.StrictMode>,
 )
