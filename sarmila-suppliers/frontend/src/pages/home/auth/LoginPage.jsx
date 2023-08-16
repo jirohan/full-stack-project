@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { HeaderComponent } from '../../../components/HeaderComponent'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
-import { NavLink, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
     let [data, setData] = useState({
