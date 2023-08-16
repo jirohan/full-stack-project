@@ -12,7 +12,7 @@ const LoginPage = () => {
     let navigate = useNavigate()
 
     const handleChange = (e) => {
-            let {name, type, value, checked, files} = e.target;
+            //let {name, type, value, checked, files} = e.target;
             setData({
                 ...data,
                 [e.target.name]: e.target.value
@@ -24,13 +24,20 @@ const LoginPage = () => {
         console.log("Data:", data)
         //API integration
         let user_detail = {result: {
-           user:  {_id: 12, name: "rajina", email: "rajinamaharjan@gmail.com", password: "admin123", role:"seller"},
+           user:  {_id: 12, name: "rajina", email: "rajinamaharjan@gmail.com", password: "admin123", role:"admin"},
            token: "jwttoken"
         }};
         //local storage
         //5mb
         //string, no time limit
         localStorage.setItem("_ecomm_user", JSON.stringify(user_detail))
+        localStorage.setItem("_ecomm_user", (user_detail.result.token))
+        //sessionStorage.setItem("_ecomm_user", JSON.stringify(user_detail))
+
+        let local_store_user = localStorage.getItem('__ecomm_user');
+
+        localStorage.clear();
+        localStorage.removeItem("_ecomm_user")
         //cookie => a domain can have 50 cookie, every cookie size is generally 4096 characters
         //string can only be stored, certain time
         //if success = ?? dashboard / admin
