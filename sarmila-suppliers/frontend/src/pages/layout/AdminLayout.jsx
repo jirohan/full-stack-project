@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./adminlayout.css";
 import "bootstrap";
 
@@ -75,9 +75,9 @@ const AdminLayout = () => {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a className="dropdown-item" href="#!">
+                <NavLink className="dropdown-item" to="/">
                   Logout
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>
