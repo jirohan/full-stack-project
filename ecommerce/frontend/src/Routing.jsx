@@ -7,6 +7,7 @@ import CategoryDetail from './pages/home/category/CategoryDetail'
 import AdminLayout from './pages/layout/AdminLayout'
 import CustomerLayout from './pages/layout/CustomerLayout'
 import AdminDashboard from './pages/admin/dashboard/AdminDashboard'
+import { AccessControlComponent } from './components/access-control/AccessControlComponent'
 
 
 const Routing = () => {
@@ -27,7 +28,7 @@ const Routing = () => {
                   /api/vi/user/:id   delete => delete user
 
                 */}
-               <Route path="/admin" element={<AdminLayout />}>
+               <Route path="/admin" element={<AccessControlComponent Component={<AdminLayout />} />}>
                   <Route index element={<AdminDashboard/>} />
                   <Route path="user">
                     <Route index element={<>List all user</>} /> 

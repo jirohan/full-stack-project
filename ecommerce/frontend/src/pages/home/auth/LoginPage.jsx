@@ -34,10 +34,10 @@ const LoginPage = () => {
         localStorage.setItem("_ecomm_user", (user_detail.result.token))
         //sessionStorage.setItem("_ecomm_user", JSON.stringify(user_detail))
 
-        let local_store_user = localStorage.getItem('__ecomm_user');
+        //let local_store_user = localStorage.getItem('__ecomm_user');
 
-        localStorage.clear();
-        localStorage.removeItem("_ecomm_user")
+        // localStorage.clear();
+        // localStorage.removeItem("_ecomm_user")
         //cookie => a domain can have 50 cookie, every cookie size is generally 4096 characters
         //string can only be stored, certain time
         //if success = ?? dashboard / admin
