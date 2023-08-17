@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HeaderComponent } from '../../../components/HeaderComponent'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
 import {  useNavigate } from 'react-router-dom'
@@ -12,7 +12,7 @@ const LoginPage = () => {
     let navigate = useNavigate()
 
     const handleChange = (e) => {
-        let {name, type, value, checked, files} = e.target;
+        //let {name, type, value, checked, files} = e.target;
         setData({
             ...data, 
             [e.target.name]: e.target.value
@@ -24,12 +24,30 @@ const LoginPage = () => {
         console.log("Data:", data)
 
         //Api integration
-        let user_detail = {result: {
-            user: {_id: 123, name:"rohan", email: "rohanmaharjan@gmail.com", role: "admin"},
-            token: "jwttoken"
-        }};
+        let user_detail = {result: 
+            {
+                user: {_id: 123, name:"rajina", email: "rajinamaharjan@gmail.com", password:"admin123", role: "admin"},
+                token: "jwttoken"
+            }
+        };
+
+        //local storage
+        localStorage.setItem("_sarmila_user", JSON.stringify(user_detail.result.user));
+        localStorage.setItem("_sarmila_token", (user_detail.result.token))
+
+        //let local_store_user = localStorage.getItem('_sarmila_user');
+
         navigate("/"+user_detail.result.user.role)
     }
+
+    useEffect(()=>{
+        let token = localStorage.getItem("_sarmila_token");
+        let user = JSON.parse(localStorage.getItem("_sarmila_user"));
+
+        if(token){
+            navigate('/'+user.role)
+        }
+    }, [])
     
   return (
     <>

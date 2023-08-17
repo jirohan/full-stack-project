@@ -7,10 +7,14 @@ import CategoryDetail from './pages/home/category/CategoryDetail'
 import AdminLayout from './pages/layout/AdminLayout'
 import CustomerLayout from './pages/layout/CustomerLayout'
 import AdminDashboard from './pages/admin/dashboard/AdminDashboard'
+import { AccessControlComponent } from './components/access-control/AccessControlComponent'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.min.css";
 
 const Routing = () => {
   return (
     <>
+        <ToastContainer />
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<HomePage />} />
@@ -18,7 +22,7 @@ const Routing = () => {
 
                 <Route path="/category/:id" element={<CategoryDetail/>} />
 
-                <Route path="/admin" element={<AdminLayout />}>
+                <Route path="/admin" element={<AccessControlComponent Component={<AdminLayout />} />}>
                   <Route index element={<AdminDashboard/>} />
                   <Route path="user" element={<>User Outlet<Outlet/></>}>
                     <Route index element={<>List all user</>} /> 
