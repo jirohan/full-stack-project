@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderComponent } from '../../../components/HeaderComponent'
+import { HeaderComponent } from '../../../components/home/HeaderComponent'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 const CategoryDetail = () => {

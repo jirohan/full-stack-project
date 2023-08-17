@@ -17,7 +17,7 @@ import image3 from "../../assets/image/vivo.png"
 import image4 from "../../assets/image/nord1.jpg"
 import image5 from "../../assets/image/Oneplus.jpg"
 import image6 from "../../assets/image/watch.jpg"
-import { HeaderComponent } from "../../components/HeaderComponent";
+import { HeaderComponent } from "../../components/home/HeaderComponent";
 import { NavLink } from "react-router-dom";
 
 
@@ -42,8 +42,6 @@ const HomePage = () => {
   });
   return (
     <>
-      <HeaderComponent />
-    
       {
         loading ? "Loading..." : 
         <Slider {...settings}>

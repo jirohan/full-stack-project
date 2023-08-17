@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { HeaderComponent } from '../../../components/HeaderComponent'
+import { HeaderComponent } from '../../../components/home/HeaderComponent'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
@@ -60,7 +60,6 @@ const LoginPage = () => {
 
   return (
     <>
-        <HeaderComponent />
         <Container>
             <Row>
                 <Col>

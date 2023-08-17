@@ -10,6 +10,8 @@ import AdminDashboard from './pages/admin/dashboard/AdminDashboard'
 import { AccessControlComponent } from './components/access-control/AccessControlComponent'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.min.css";
+import RegisterPage from './pages/home/auth/RegisterPage'
+import HomePageLayout from './pages/layout/HomePageLayout'
 
 
 const Routing = () => {
@@ -18,10 +20,14 @@ const Routing = () => {
         <ToastContainer />
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<HomePage/>} />
-                <Route path="/login" element={<LoginPage/>} />
+                <Route path='/' element={<HomePageLayout />} >
+                  <Route path="/" element={<HomePage/>} />
+                  <Route path="/login" element={<LoginPage/>} />
+                  <Route path="/register" element={<RegisterPage/>} />
 
-                <Route path="/category/:id" element={<CategoryDetail/>} />
+                  <Route path="/category/:id" element={<CategoryDetail/>} />
+                  <Route path="/search" element={<>Search</>} />
+                </Route>
                 
                 {/* 
                   /api/v1/user/   post => create
