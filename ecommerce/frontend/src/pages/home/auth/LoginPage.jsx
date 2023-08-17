@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HeaderComponent } from '../../../components/HeaderComponent'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -24,14 +24,14 @@ const LoginPage = () => {
         console.log("Data:", data)
         //API integration
         let user_detail = {result: {
-           user:  {_id: 12, name: "rajina", email: "rajinamaharjan@gmail.com", password: "admin123", role:"admin"},
-           token: "jwttoken"
+           user:  {_id: 12, name: "rohan", email: "rohanmaharjan@gmail.com", password: "admin123", role:"admin"},
+           token: "jwttoken",
         }};
         //local storage
         //5mb
         //string, no time limit
-        localStorage.setItem("_ecomm_user", JSON.stringify(user_detail))
-        localStorage.setItem("_ecomm_user", (user_detail.result.token))
+        localStorage.setItem("_ecomm_user", JSON.stringify(user_detail.result.user));
+        localStorage.setItem("_ecomm_token", (user_detail.result.token))
         //sessionStorage.setItem("_ecomm_user", JSON.stringify(user_detail))
 
         //let local_store_user = localStorage.getItem('__ecomm_user');
@@ -43,6 +43,16 @@ const LoginPage = () => {
         //if success = ?? dashboard / admin
         navigate("/"+user_detail.result.user.role)
     }    
+
+    useEffect(()=> {
+        let token = localStorage.getItem("_ecomm_token");
+        let user = JSON.parse(localStorage.getItem("_ecomm_user"));
+
+        if(token){
+            navigate("/"+ user.role)
+        }
+    }, [])
+
   return (
     <>
         <HeaderComponent />

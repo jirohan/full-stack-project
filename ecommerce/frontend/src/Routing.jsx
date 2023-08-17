@@ -8,11 +8,14 @@ import AdminLayout from './pages/layout/AdminLayout'
 import CustomerLayout from './pages/layout/CustomerLayout'
 import AdminDashboard from './pages/admin/dashboard/AdminDashboard'
 import { AccessControlComponent } from './components/access-control/AccessControlComponent'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.min.css";
 
 
 const Routing = () => {
   return (
     <>
+        <ToastContainer />
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage/>} />
