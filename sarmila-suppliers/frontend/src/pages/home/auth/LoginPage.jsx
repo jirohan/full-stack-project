@@ -24,8 +24,8 @@ const LoginPage = () => {
         console.log("Data:", data)
 
         //Api integration
-        let user_detail = {result: 
-            {
+        let user_detail = {
+            result: {
                 user: {_id: 123, name:"rajina", email: "rajinamaharjan@gmail.com", password:"admin123", role: "admin"},
                 token: "jwttoken"
             }
@@ -42,7 +42,9 @@ const LoginPage = () => {
 
     useEffect(()=>{
         let token = localStorage.getItem("_sarmila_token");
+        console.log("token = ", token);
         let user = JSON.parse(localStorage.getItem("_sarmila_user"));
+        console.log("user = ", user)
 
         if(token){
             navigate('/'+user.role)
