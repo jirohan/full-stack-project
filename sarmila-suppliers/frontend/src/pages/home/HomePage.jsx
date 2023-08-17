@@ -20,7 +20,7 @@ import product9 from '../../assets/image/product9.jpg';
 import product10 from '../../assets/image/product10.jpg';
 import product11 from '../../assets/image/product11.jpg';
 import product12 from '../../assets/image/product12.jpg';
-import { HeaderComponent } from '../../components/HeaderComponent';
+import { HeaderComponent } from '../../components/home/HeaderComponent';
 import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
@@ -42,9 +42,6 @@ const HomePage = () => {
 
   return (
     <>
-        
-      <HeaderComponent />
-
       {/* Slider Banner Start */}
       {
         loading ? "Loading..." : 
@@ -195,21 +192,7 @@ const HomePage = () => {
       {/* Category End */}
 
       {/* Footer Start */}
-      <footer className='bg-dark'>
-        <Container fluid>
-          <Row>
-            <Col sm={12} lg={4}>
-              About
-            </Col>
-            <Col sm={12} lg={4}>
-              About
-            </Col>
-            <Col sm={12} lg={4}>
-              About
-            </Col>
-          </Row>
-        </Container>
-      </footer>
+      
       {/* Footer End */}
     </>
   )

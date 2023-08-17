@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderComponent } from '../../components/HeaderComponent'
+import { HeaderComponent } from '../../components/home/HeaderComponent'
 import { Col, Container, Row } from 'react-bootstrap'
 
 const ErrorPage = ({error}) => {

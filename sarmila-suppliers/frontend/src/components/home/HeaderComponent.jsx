@@ -1,6 +1,6 @@
 import React from 'react'
-import {Navbar, Nav, Container} from "react-bootstrap";
-import logo from "../assets/image/logo.png"
+import {Navbar, Nav, Container, Row, Col} from "react-bootstrap";
+import logo from "../../assets/image/logo.png"
 import {NavLink} from "react-router-dom";
 
 export const HeaderComponent = () => {
@@ -29,4 +29,25 @@ export const HeaderComponent = () => {
       {/* Nav Section End */}
     </>
   )
+}
+
+export const FooterComponent = () => {
+  return(
+  <>
+    <footer className='bg-dark'>
+        <Container fluid>
+          <Row>
+            <Col sm={12} lg={4}>
+              First Col
+            </Col>
+            <Col sm={12} lg={4}>
+              Second 
+            </Col>
+            <Col sm={12} lg={4}>
+              Third Col
+            </Col>
+          </Row>
+        </Container>
+      </footer>
+  </>)
 }
