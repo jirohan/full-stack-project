@@ -23,10 +23,12 @@ const LoginPage = () => {
         e.preventDefault();
         console.log("Data:", data)
         //API integration
-        let user_detail = {result: {
-           user:  {_id: 12, name: "rohan", email: "rohanmaharjan@gmail.com", password: "admin123", role:"admin"},
-           token: "jwttoken",
-        }};
+        let user_detail = {
+            result: {
+                user:  {_id: 12, name: "rohan", email: "rohanmaharjan@gmail.com", password: "admin123", role:"admin"},
+                token: "jwttoken",
+                }
+            };
         //local storage
         //5mb
         //string, no time limit
@@ -46,7 +48,10 @@ const LoginPage = () => {
 
     useEffect(()=> {
         let token = localStorage.getItem("_ecomm_token");
+        // console.log( `token = `,token )
+        // console.log( `token = `,typeof( token) )
         let user = JSON.parse(localStorage.getItem("_ecomm_user"));
+        // console.log( `user = `,user )
 
         if(token){
             navigate("/"+ user.role)

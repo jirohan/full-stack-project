@@ -75,7 +75,7 @@ const AdminLayout = () => {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <NavLink className="dropdown-item" to="/">
+                <NavLink className="dropdown-item" to="/" onClick={()=>LogOutLocalStorageDataClear()}>
                   Logout
                 </NavLink>
               </li>
