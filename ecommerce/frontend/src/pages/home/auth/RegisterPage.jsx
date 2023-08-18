@@ -151,7 +151,7 @@ const RegisterPage = () => {
                                   }
                               }}
                             />
-                            <span className='text-danger'>{formik.errors.image}</span>
+                            <span className='text-danger'>{formik.errors?.image}</span>
                         </Col>
                       </Form.Group>
                       
