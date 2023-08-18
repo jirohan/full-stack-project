@@ -6,6 +6,7 @@ export const AccessControlComponent = ({Component}) => {
   let token = localStorage.getItem("_sarmila_token");
   let [loading, setLoading] = useState(true);
   let navigate = useNavigate();
+  
   useEffect(()=> {
     if(!token){
       navigate("/login")
