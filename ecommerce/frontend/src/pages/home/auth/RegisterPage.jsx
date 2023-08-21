@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import {useFormik} from "formik";
 import * as Yup from "yup";
 
-
 const RegisterPage = () => {
+
   let defaultValue = {
     name: "",
     email:"",
@@ -32,7 +31,6 @@ const RegisterPage = () => {
     onSubmit: (values) => {
       console.log("Submit: ", values);
     }
-
   })
   
   return (
