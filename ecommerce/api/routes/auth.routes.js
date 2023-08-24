@@ -1,37 +1,37 @@
 const express = require("express");
-const app_routes = express();
+const app_routes = express.Router();
 
+const AuthController = require("../app/controller/auth.controller")
+const auth_ctrl = new AuthController();
 // Auth and Authorization
 // Eg: Login, Register, Logout, forget Password, Dashboard, Activation User
 
-app_routes.post("/login", (req, res)=>{
-    // TODO: Valdiation, Modeling, DB Query,  
-    let validation_flag = false;
-    if(!validation_flag){
-        res.status(400).json({
-            result: null,
-            status: false,
-            msg: "Credential doesnt match"
-        });
-    } else{
-        res.json({
-            result: null,
-            status: true,
-            msg: "Login Success"
-        });
-    }
-});
+const uploader = (req, res, next) => {
+    next();
+}
 
-app_routes.post("/register", (req, res)=>{
+// app_routes.get("/user/:id", (req, res, next)=>{
+//     let params = req.params;
+//     let query = req.query;
+//     let body = req.body;
+//     res.json({
+//         result: {
+//             params: params,
+//             query: query,
+//             body: body
+//         },
+//         status: true,
+//         msg: "Parser example"
+//     })
+//     //let id = req.params.id
+// })
 
-});
+app_routes.post("/login", auth_ctrl.loginUser);
 
-app_routes.post("/logout", (req, res)=> {
+app_routes.post("/register", uploader, auth_ctrl.registerUser);
 
-});
+app_routes.post("/logout", auth_ctrl.logoutUser);
 
-app_routes.post("/change-pwd", (req, res)=> {
-
-});
+app_routes.post("/change-pwd", auth_ctrl.changePwd);
 
 module.exports = app_routes;
