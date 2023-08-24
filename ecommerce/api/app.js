@@ -16,11 +16,6 @@ app.use((req, res, next)=> {
         status: 404, 
         msg: "not found"
     });
-    // res.status(400).json({
-    //     result: null,
-    //     msg:"Not Found",
-    //     status: false
-    // })
 });
 
 //error handling middleware
