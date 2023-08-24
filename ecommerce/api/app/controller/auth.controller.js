@@ -36,6 +36,7 @@ class AuthController{
             })
         }
     }
+    
     loginUser = (req, res, next)=>{
         // TODO: Valdiation, Modeling, DB Query,  
         // let validation_flag = true;
