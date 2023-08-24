@@ -6,9 +6,7 @@ const auth_ctrl = new AuthController();
 // Auth and Authorization
 // Eg: Login, Register, Logout, forget Password, Dashboard, Activation User
 
-const uploader = (req, res, next) => {
-    next();
-}
+const uploader = require("../app/middleware/uploader.middleware")
 
 // app_routes.get("/user/:id", (req, res, next)=>{
 //     let params = req.params;
@@ -28,7 +26,7 @@ const uploader = (req, res, next) => {
 
 app_routes.post("/login", auth_ctrl.loginUser);
 
-app_routes.post("/register", uploader, auth_ctrl.registerUser);
+app_routes.post("/register", uploader.single('image'), auth_ctrl.registerUser);
 
 app_routes.post("/logout", auth_ctrl.logoutUser);
 
