@@ -10,6 +10,10 @@ class AuthController{
         //Submission of the form --> /register route of BE Post
         try {
             let body = req.body;
+
+            if(req.file){
+                body.image = req.file.filename
+            }
         //file handle
         //validation
         //DB Query
@@ -19,24 +23,28 @@ class AuthController{
         //package
 
         //user svc
-        this.user_svc.validateUser(body);
+            this.user_svc.validateUser(body);
+            //DB store ==> status --> inactive
+            //act_token ---> random string
+            //email send --> url --> act_token
+            //FE url click --> FE ---> Req Be URL Token
 
-        res.json({
-            //email verification 
-                //email data, unique
-            result: body,
-            status: true,
-            msg: "Received"
-        })
-    }
-         catch (excp) {
-            next({
-                status: 400,
-                msg: excp
+            res.json({
+                //email verification 
+                    //email data, unique
+                result: body,
+                status: true,
+                msg: "Received"
             })
         }
-    }
-    
+            catch (excp) {
+                next({
+                    status: 400,
+                    msg: excp
+                })
+            }
+        }
+
     loginUser = (req, res, next)=>{
         // TODO: Valdiation, Modeling, DB Query,  
         // let validation_flag = true;

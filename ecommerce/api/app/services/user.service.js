@@ -17,12 +17,13 @@ class UserService {
             role: Joi.string()
                 .required(),
             status: Joi.string()
-                .required()
+                .required(),
+            image: Joi.string().empty()
            })
            let response = userSchema.validate(data);
            console.log(response);
            if(response.error){
-            throw response.error
+            throw response.error.details[0].message
            }
        } catch(err){
             console.log(err);
