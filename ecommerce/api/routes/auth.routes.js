@@ -8,22 +8,6 @@ const auth_ctrl = new AuthController();
 
 const uploader = require("../app/middleware/uploader.middleware")
 
-// app_routes.get("/user/:id", (req, res, next)=>{
-//     let params = req.params;
-//     let query = req.query;
-//     let body = req.body;
-//     res.json({
-//         result: {
-//             params: params,
-//             query: query,
-//             body: body
-//         },
-//         status: true,
-//         msg: "Parser example"
-//     })
-//     //let id = req.params.id
-// })
-
 app_routes.post("/login", auth_ctrl.loginUser);
 
 app_routes.post("/register", uploader.single('image'), auth_ctrl.registerUser);
