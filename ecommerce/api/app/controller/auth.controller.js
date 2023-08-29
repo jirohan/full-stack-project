@@ -1,6 +1,7 @@
 const { SMTP } = require("../../config/config");
 const UserService = require("../services/user.service")
 const nodemailer = require("nodemailer");
+const {MongoClient } = require("mongodb");
 
 class AuthController{
     constructor(){
@@ -26,33 +27,43 @@ class AuthController{
 
         //user svc
             this.user_svc.validateUser(body);
+
+            //DB Store
+            // let client = await MongoClient.connect("mongodb://127.0.0.1:27017");
+            // let db = client.db("ecommerce");
+
+            // let data = await db.collection("users").insertOne(body);
+
+            // console.log(data);
+            let data = await this.user_svc.createUser(body);
+
             //DB store ==> status --> inactive
             //act_token ---> random string
             //email send --> url --> act_token
             //FE url click --> FE ---> Req Be URL Token
-            let transporter = nodemailer.createTransport({
-                host: SMTP.HOST,
-                port: SMTP.PORT,
-                secure: SMTP.TLS,
-                auth: {
-                    user: SMTP.USER,
-                    pass: SMTP.PASS
-                }
-            });
+            // let transporter = nodemailer.createTransport({
+            //     host: SMTP.HOST,
+            //     port: SMTP.PORT,
+            //     secure: SMTP.TLS,
+            //     auth: {
+            //         user: SMTP.USER,
+            //         pass: SMTP.PASS
+            //     }
+            // });
 
-            let mail_response = await transporter.sendMail({
-                to: body.email,
-                from: SMTP.FROM,
-                attachments: [
-                    {
-                        filename: 'Image.jpeg',
-                        path: "http://localhost:3005/assets/1693218607604-Untitled design.png"
-                    }
-                ],
-                subject: "Account Register",
-                text: "Dear" +body.name+ ", Your account has been registered.",
-                html: `<b>Dear ${body.name}</b>, <br></br><p>Your account has been registered.<img src='http://localhost:3005/assets/public/1693218607604-Untitled design.png' /></p>`
-            });
+            // let mail_response = await transporter.sendMail({
+            //     to: body.email,
+            //     from: SMTP.FROM,
+            //     attachments: [
+            //         {
+            //             filename: 'Image.jpeg',
+            //             path: "http://localhost:3005/assets/1693218607604-Untitled design.png"
+            //         }
+            //     ],
+            //     subject: "Account Register",
+            //     text: "Dear" +body.name+ ", Your account has been registered.",
+            //     html: `<b>Dear ${body.name}</b>, <br></br><p>Your account has been registered.<img src='http://localhost:3005/assets/public/1693218607604-Untitled design.png' /></p>`
+            // });
 
             res.json({
                 //email verification 
