@@ -39,6 +39,18 @@ class UserService extends DbService {
             throw excep
         }
     }
+
+    getUserByEmail = async(data) => {
+        try {
+            let result = await this.db.collection("users").findOne({
+                email: data.email
+            });
+
+            return result;
+        } catch (err) {
+            throw err;
+        }
+    }
 }   
 
 module.exports = UserService;
