@@ -1,6 +1,7 @@
 const Joi = require("joi");
+const DbService = require("./db.service");
 
-class UserService {
+class UserService extends DbService {
     validateUser = (data) => {
        try{
         let userSchema = Joi.object({
@@ -29,6 +30,14 @@ class UserService {
             console.log(err);
             throw err;
        }
+    }
+
+    createUser = async(data) => {
+        try {
+            return await this.db.collection("users").insertOne(data);
+        } catch (excep) {
+            throw excep
+        }
     }
 }   
 
