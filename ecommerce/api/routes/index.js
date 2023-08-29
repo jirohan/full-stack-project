@@ -1,5 +1,6 @@
 const express = require("express")
 const app_routes = express();
+
 const auth_routes = require("./auth.routes");
 const cat_routes = require("./category.routes");
 const prod_routes = require("./product.routes");
