@@ -1,18 +1,20 @@
 // const express = require("express");
 // const exp_app = express.Router();
 
-const exp_app = require("express").Router();
+const router = require("express").Router();
 
-exp_app.route("/")
+router.route("/")
     .get((req, res, next)=> {
         //return all categories
     })
     .post((req, res, next)=> {
-        //register a category
+        // login check 
+        // permission
+        // category create
     })
 
 //category/param
-exp_app.put("/:id", (req, res)=> {
+router.put("/:id", (req, res)=> {
     
     //access param
     let id = req.params.id;
@@ -23,7 +25,7 @@ exp_app.put("/:id", (req, res)=> {
     console.log(id)
 })
 
-exp_app.delete("/:slug", (req, res)=> {
+router.delete("/:slug", (req, res)=> {
     //register a category
     let slug = req.params.slug;
     console.log(slug)
@@ -32,4 +34,4 @@ exp_app.delete("/:slug", (req, res)=> {
 //edit => /category/id
 //delete => /category/id
 
-module.exports = exp_app;
+module.exports = router;
