@@ -1,16 +1,20 @@
 // const express = require("express");
 // const exp_app = express.Router();
 
+const auth = require("../app/middleware/auth.middleware");
+
 const router = require("express").Router();
 
 router.route("/")
     .get((req, res, next)=> {
         //return all categories
     })
-    .post((req, res, next)=> {
-        // login check 
-        // permission
-        // category create
+    .post(auth, (req, res, next)=>{
+        res.json({
+            result: req.auth_user,
+            status: true,
+            msg:"category..."
+        })
     })
 
 //category/param
