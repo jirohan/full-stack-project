@@ -4,7 +4,6 @@ const UserService = require("../services/user.service");
 let user_svc = new UserService();
 
 const auth = async(req, res, next) => {
-   
     try{
         let token = null;
         // console.log(req.header)

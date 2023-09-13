@@ -1,8 +1,7 @@
 const Joi = require("joi");
-const { ObjectId } = require("mongodb");
-const DbService = require("./db.service");
+const UserModel = require("../model/user.model")
 
-class UserService extends DbService {
+class UserService{
     validateUser = (data) => {
        try{
         let userSchema = Joi.object({
@@ -35,15 +34,22 @@ class UserService extends DbService {
 
     createUser = async(data) => {
         try {
-            return await this.db.collection("users").insertOne(data);
+            let user_obj = new UserModel(data);
+            return await user_obj.save();
+            //return await this.db.collection("users").insertOne(data);
         } catch (excep) {
-            throw excep
+            if(excep.code === 11000){
+                let keys = Object.keys(excep.keyPattern);
+                throw keys.join(", ")+" should be unique";
+            } else {
+                throw excep
+            }
         }
     }
 
     getUserByEmail = async(data) => {
         try {
-            let result = await this.db.collection("users").findOne({
+            let result = await UserModel.findOne({
                 email: data.email
             });
 
@@ -55,9 +61,7 @@ class UserService extends DbService {
 
     getUserById = async(id)=> {
         try {
-            let user = await this.db.collection('users').findOne({
-                _id:new ObjectId(id)
-            });
+            let user = await UserModel.findById(id);
             return user;
         } catch (err) {
             throw err;

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const {ENVIRONMENT, DB} = require("./config"); 
+
 let DB_URL = "";
         if (ENVIRONMENT === "dev"){
             DB_URL = DB.PROTOCOL+"://"+DB.HOST+":"+DB.PORT;
@@ -10,7 +11,7 @@ let DB_URL = "";
 mongoose.set('strictQuery', false)            
 mongoose.connect(DB_URL)
     .then(() => {
-        console.log('Connected to DB successfully....');
+        console.log('Connected to DataBase successfully....');
     })
   .catch((err) => {
         console.error('Failed to connect to DB', err);

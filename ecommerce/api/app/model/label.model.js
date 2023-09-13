@@ -11,8 +11,15 @@ const LabelSchemaDef = new mongoose.Schema({
         type: String,
         required: true
     },
-    status: commonSchema.statusSchema
-
+    type: {
+        type: String,
+        enum: ["brand", "banner"],
+        default: "banner"
+    },
+    status: commonSchema.statusSchema,
+    created_by: commonSchema.created_by
 }, commonSchema.trigger)
 
 const LabelModel = mongoose.model("Label", LabelSchemaDef);
+
+module.exports = LabelModel;
