@@ -13,19 +13,26 @@ const UserSchemaDef = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    },
-    faculty: {
-        type: String,
-        enum: ['CSIT', "BCA", "BIT"],
-        default: "CSIT"
-    },
-    id: {
-        type: Number,
-        required: true
     }, 
     role: {
         type: String, 
-        enum: ["admin", "student", "teacher"]
+        enum: ["admin", "student", "teacher", "parent"],
+        default: "student"
+    },
+    dateOfBirth: {
+        type: String
+    },
+    phoneNumber: {
+        type: String
+    },
+    address: {
+        street: String,
+        city: String,
+        state: String,
+        country: String
+    },
+    gender: {
+        type: String
     },
     created_by: {
         type: mongoose.Types.ObjectId,
