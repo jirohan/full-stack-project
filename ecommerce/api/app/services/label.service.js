@@ -22,6 +22,46 @@ class LabelService{
         let label_obj = new LabelModel(this.data);
         return await label_obj.save();
     }
+
+    getAllCounts = async(type) => {
+        let filter = {
+            type: type
+        }
+        let all_data = await LabelModel.find(filter)
+        return all_data.length;
+    }
+
+    getLabels = async(type, skip, limit) => {
+        let filter = {
+            type: type
+        }
+        return await LabelModel.find(filter)
+            .skip(skip)
+            .limit(limit);
+    }
+
+    findById = async(type, id) => {
+        let filter = {
+            type: type,
+            _id: id
+        }
+        return await LabelModel.findOne(filter);
+    }
+    
+    deleteById = async(type, id) => {
+        let filter = {
+            type: type,
+            _id: id
+        }
+        return await LabelModel.deleteOne(filter);
+    }
+
+    updateLabel = async(id) => {
+        let status = await LabelModel.findByIdAndUpdate(id, {
+            $set: this.data
+        })
+        return status;
+    }
 }
 
 module.exports = LabelService;
