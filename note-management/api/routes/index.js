@@ -7,7 +7,7 @@ const hw_routes = require("./hw.routes")
 
 app_routes.use(auth_routes);
 
-app_routes.use(course_routes);
+app_routes.use("/assignhw",course_routes);
 app_routes.use(hw_routes)
 
 module.exports = app_routes;

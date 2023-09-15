@@ -6,6 +6,13 @@ const course_ctrl = new CourseController();
 
 const router = require("express").Router();
 
-router.post("/assignhw", auth, isAdminTeacher, uploader.single('file'), course_ctrl.courseStore)
+router.route("/")
+    .get(course_ctrl.getCourse)
+    .post( auth, isAdminTeacher, uploader.single('file'), course_ctrl.courseStore)
+
+router.route("/:id")    
+    .get( course_ctrl.getCourseById)
+    .delete( auth, isAdminTeacher, course_ctrl.deleteById)
+    .put( auth, isAdminTeacher, uploader.single("file"), course_ctrl.courseUpdate)    
 
 module.exports = router;
