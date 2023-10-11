@@ -3,19 +3,22 @@ const app = express();
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
+
+app.use(cors());
+app.options('*', cors());
+
+const routes = require("./routes/index");
 
 //middleware
 require('dotenv/config');
 
 app.use(bodyParser.json());
-const api = process.env.API_URL;
-const productRouter = require('./routes/product.routes');
 
-app.use(`${api}/products`, productRouter)
+//routes
+app.use(routes);
 
-const Product = require("./app/models/product.model")
-
-
+//Database
 mongoose.connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
 
