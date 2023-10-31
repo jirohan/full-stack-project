@@ -2,6 +2,7 @@ const User = require("../model/user.model.js")
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const createError = require('http-errors');
+const Config = require("../../config/config.js");
 
 exports.register = async(req, res, next)=>{
     try {
@@ -37,7 +38,7 @@ exports.login = async(req, res, next)=>{
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
         if(!isPasswordCorrect) return next(createError(400, "Wrong Password!"))
 
-        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.YOUR_SECRET_KEY);
+        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, Config.JWT_SECRET);
 
         const {password, isAdmin, ...otherDetails} = user._doc;
         res.cookie("access_token", token, {
